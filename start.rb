@@ -20,14 +20,19 @@ class Start
   results_prisoners = Array.new
   results_prisoners = prisonersA.clone
 
-
   prisonersA.each do |prisonerA|
     #half is waste,so rejecing half of game
     prisonersB.reject!{|x| x == prisonerA }
     prisonersB.each do |prisonerB|
-      Game.new(prisonerA,prisonerB).play
+      5.times do
+        if prisonerB == random_prisoner
+          prisonerB.strategy.re_strategy
+        end
+        Game.new(prisonerA,prisonerB).play
+      end
     end
   end
-
+  prisonersA = results_prisoners.clone
   Game.output_results(results_prisoners)
+
 end

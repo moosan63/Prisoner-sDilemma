@@ -76,5 +76,13 @@ class AllRandomStrategy
     end
     @title  = 'AllRandomStrategy'
   end
+  
+  public
+  def re_strategy
+    @trials = Array.new
+    200.times do
+      @trials << [:coop,:betray].sample
+    end
+  end
 end
 

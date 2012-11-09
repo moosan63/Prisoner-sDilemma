@@ -48,7 +48,7 @@ class Game
     puts " -*-= results =-*- "
     prisoners.each do |prisoner|
       f = ->(i){i+" "*(25 - i.size) }
-      puts (f.(prisoner.strategy.title)+": #{prisoner.point}")
+      puts f.(prisoner.strategy.title)+": #{prisoner.point}"
     end
   end
 end
