@@ -9,13 +9,16 @@ class Start
   random_prisoner          = Prisoner.new(AllRandomStrategy.new)
   
   prisonersA = [tft_prisoner,
-               betrayal_prisoner,
-               odd_betrayal_prisoner,
-               odd_cooperative_prisoner,
-               random_prisoner]
+                betrayal_prisoner,
+                odd_betrayal_prisoner,
+                odd_cooperative_prisoner,
+                random_prisoner]
   #same object set for comparing whether same object or not
-  prisonersB = prisonersA
+  prisonersB = Array.new
+  prisonersB = prisonersA.clone
 
+  prisonersA.each{ |a| puts a.strategy.title}
+  prisonersB.each{ |b| puts b.strategy.title}
   #For output results, because prisonerA will be reject!ed.
   results_prisoners = Array.new
   results_prisoners = prisonersA.clone
@@ -24,11 +27,13 @@ class Start
     #half is waste,so rejecing half of game
     prisonersB.reject!{|x| x == prisonerA }
     prisonersB.each do |prisonerB|
-      5.times do
-        if prisonerB == random_prisoner
-          prisonerB.strategy.re_strategy
+      unless prisonerA == prisonerB
+        5.times do
+          if prisonerB == random_prisoner
+            prisonerB.strategy.re_strategy
+          end
+          Game.new(prisonerA,prisonerB).play
         end
-        Game.new(prisonerA,prisonerB).play
       end
     end
   end
