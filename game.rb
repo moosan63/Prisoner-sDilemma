@@ -49,9 +49,9 @@ class Game
       end #end if trial == :betray
     end #end trials1.each
     
-    #puts "=-= points =-="
-    #puts "#{@prisoner1.strategy.title } : #{@prisoner1.point} : #{tmp_p1}"
-    #puts "#{@prisoner2.strategy.title } : #{@prisoner2.point} : #{tmp_p2}"
+    puts "=-= points =-="
+    puts "#{@prisoner1.strategy.title } : #{@prisoner1.point} : #{tmp_p1}"
+    puts "#{@prisoner2.strategy.title } : #{@prisoner2.point} : #{tmp_p2}"
   end #end def play
 
   def self.output_results(prisoners)

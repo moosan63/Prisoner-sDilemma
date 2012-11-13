@@ -17,8 +17,6 @@ class Start
   prisonersB = Array.new
   prisonersB = prisonersA.clone
 
-  prisonersA.each{ |a| puts a.strategy.title}
-  prisonersB.each{ |b| puts b.strategy.title}
   #For output results, because prisonerA will be reject!ed.
   results_prisoners = Array.new
   results_prisoners = prisonersA.clone
